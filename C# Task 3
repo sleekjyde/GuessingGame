@@ -1,0 +1,29 @@
+static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}
+
+
+
+while (win == false && !outOfGuesses);
+               if (guessCount < guessLimit)
+               {
+                   Console.WriteLine ("Guess a number between 1 to 10: ");
+                   guess = int.Parse(Console.ReadLine ());
+                   guessCount++;
+               }
+               else if (guessCount == 6)
+               {
+                   outOfGuesses = true;
+                   Console.WriteLine ("Game Over!");
+               }
+            if (guess != winNum)
+               {
+                   Console.WriteLine ("That was wrong");
+                   Console.WriteLine ("You have", guessLimit-1, "left");
+               }
+            else if (guess == winNum)
+               {
+                   Console.WriteLine ("You got it right!");
