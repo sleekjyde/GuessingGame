@@ -1,13 +1,42 @@
-static void Main(string[] args)
+using System;
+
+namespace GuessingGame
+{
+    class Program
+    {
+        static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string input = "";
+
+            Console.WriteLine ("Welcome to the Guessing Game.");
+            Console.WriteLine ("Please Choose difficulty level. E - Easy M - Medium H - Hard");
+            input = Console.ReadLine();
+
+            if (input == "E" || input == "Easy")
+            {
+                Easy();
+            }
+            else if (input == "M" || input == "Medium")
+            {
+                Medium();
+            }
+            else if (input == "H" || input == "Hard")
+            {
+                Hard();
+            }
         }
-    }
-}
 
-
-
-while (win == false && !outOfGuesses);
+        static void Easy() //Easy Level
+        { 
+           int guess = 0;
+           int guessCount = 0;
+           int guessLimit = 6;
+           Random n = new Random ();
+           int winNum = n.Next (0, 10);
+           bool win = false;
+           
+           while (win == false)
+           {
                if (guessCount < guessLimit)
                {
                    Console.WriteLine ("Guess a number between 1 to 10: ");
@@ -16,14 +45,88 @@ while (win == false && !outOfGuesses);
                }
                else if (guessCount == 6)
                {
-                   outOfGuesses = true;
                    Console.WriteLine ("Game Over!");
+                   break;
                }
             if (guess != winNum)
-               {
-                   Console.WriteLine ("That was wrong");
-                   Console.WriteLine ("You have", guessLimit-1, "left");
-               }
+            {
+                Console.WriteLine ("That was wrong");
+                Console.WriteLine ("Attempts left: " + (guessLimit - guessCount));
+            }
             else if (guess == winNum)
+            {
+                Console.WriteLine ("You got it right!");
+                break;
+            }
+           }
+        }
+        static void Medium() //Medium Level
+        {
+            int guess = 0;
+           int guessCount = 0;
+           int guessLimit = 4;
+           Random n = new Random ();
+           int winNum = n.Next (0, 20);
+           bool win = false;
+           
+           while (win == false)
+           {
+               if (guessCount < guessLimit)
                {
-                   Console.WriteLine ("You got it right!");
+                   Console.WriteLine ("Guess a number between 1 to 20: ");
+                   guess = int.Parse(Console.ReadLine ());
+                   guessCount++;
+               }
+               else if (guessCount == 4)
+               {
+                   Console.WriteLine ("Game Over!");
+                   break;
+               }
+            if (guess != winNum)
+            {
+                Console.WriteLine ("That was wrong");
+                Console.WriteLine ("Attempts left: " + (guessLimit - guessCount));
+            }
+            else if (guess == winNum)
+            {
+                Console.WriteLine ("You got it right!");
+                break;
+            }
+           }
+        }
+        static void Hard() //Hard Level
+        {
+            int guess = 0;
+           int guessCount = 0;
+           int guessLimit = 3;
+           Random n = new Random ();
+           int winNum = n.Next (0, 50);
+           bool win = false;
+           
+           while (win == false)
+           {
+               if (guessCount < guessLimit)
+               {
+                   Console.WriteLine ("Guess a number between 1 to 50: ");
+                   guess = int.Parse(Console.ReadLine ());
+                   guessCount++;
+               }
+               else if (guessCount == 3)
+               {
+                   Console.WriteLine ("Game Over!");
+                   break;
+               }
+            if (guess != winNum)
+            {
+                Console.WriteLine ("That was wrong");
+                Console.WriteLine ("Attempts left: " + (guessLimit - guessCount));
+            }
+            else if (guess == winNum)
+            {
+                Console.WriteLine ("You got it right!");
+                break;
+            }
+           }
+        }
+        }          
+    }
